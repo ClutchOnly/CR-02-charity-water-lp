@@ -1,7 +1,7 @@
 html, body {
   height: 100%;
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -10,20 +10,25 @@ body {
   font-family: 'Proxima Nova', 'Segoe UI', sans-serif;
 }
 
+/* Make the main container fill the screen vertically */
 .container {
-  max-width: 1000px;
-  margin: 0 auto;
+  min-height: 100vh; /* Fill the whole screen */
+  display: flex;
+  flex-direction: column;
+  max-width: 100vw; /* Allow container to stretch full width */
+  margin: 0;
   background: white;
   border-radius: 15px;
   overflow: hidden;
 }
 
+/* Make the top bar section */
 .topbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
-  background: #eaeaea;
+  background: #cbccd1;
 }
 
 .logo {
@@ -49,12 +54,40 @@ body {
   cursor: pointer;
 }
 
+/* Make the main section flexible so it grows to fill space */
 .main-section {
   display: flex;
+  flex: 1; /* Grow to fill available space */
   background: #2E9DF7;
   color: white;
   padding: 30px;
   gap: 30px;
+}
+
+/* Make left and right sections flexible */
+.left, .right {
+  flex: 1;
+  min-width: 0; /* Prevent overflow on small screens */
+}
+
+/* Make images responsive */
+.right img, .branding img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive design: Stack sections on small screens */
+@media (max-width: 700px) {
+  .main-section {
+    flex-direction: column; /* Stack sections vertically */
+    padding: 15px;
+    gap: 15px;
+  }
+  .container {
+    border-radius: 0; /* Remove rounded corners on small screens */
+    max-width: 100vw;
+  }
 }
 
 .left {
@@ -116,7 +149,7 @@ p {
 }
 
 .subscribe-btn:hover {
-  background-color: #e0a800;
+  background-color: #FFC907;
 }
 
 .right {
