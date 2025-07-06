@@ -140,12 +140,6 @@ p {
   margin-bottom: 15px;
 }
 
-.branding-icon {
-  background-color: #FFC907;
-  padding: 2px 6px;
-  border-radius: 3px;
-}
-
 .cta-banner {
   display: flex;
   align-items: center;
